@@ -42,10 +42,10 @@ public class DriveTrainSubsystem extends Subsystem {
     	setDefaultCommand(new TankDriveCommand());
     }
     public void tankDrive(double left, double right) {
-    	frontLeftMotor.set(left);
-    	frontRightMotor.set(right);
-    	backLeftMotor.set(left);
-    	backRightMotor.set(right);
+    	frontLeftMotor.set((0 - right) / 2);
+    	frontRightMotor.set((0 - left) / 2);
+    	backLeftMotor.set((0 - right) / 2);
+    	backRightMotor.set((0 - left) / 2);
     }
 }
 
