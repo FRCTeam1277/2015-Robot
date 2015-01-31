@@ -28,7 +28,7 @@ public class TurnTo extends Command
 		if(currentAngle < targetAngle) // left of target angle
 		{
 			// turn right
-			Robot.driveTrain.tankDrive(0.5, -0.5);
+			Robot.driveTrain.tankDriveRaw(0.5, -0.5);
 		}
 		else
 		{
