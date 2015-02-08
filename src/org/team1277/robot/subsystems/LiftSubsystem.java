@@ -1,7 +1,6 @@
 package org.team1277.robot.subsystems;
 
 import org.team1277.robot.RobotMap;
-import org.team1277.robot.commands.DefaultLiftCommand;
 import org.team1277.robot.commands.TankDriveCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -24,7 +23,6 @@ public class LiftSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
-    	setDefaultCommand(new DefaultLiftCommand());
     }
     
     public void moveUp() {
