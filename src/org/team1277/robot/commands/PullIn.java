@@ -7,12 +7,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class StopLift extends Command {
+public class PullIn extends Command {
 
-    public StopLift() {
+    public PullIn() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.lift);
+    	requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
@@ -21,12 +21,21 @@ public class StopLift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.lift.moveStop();
+    	Robot.arms.pullIn();
+    	if (Robot.oi.leftJoystick.getRawButton(5)) {
+    		Robot.arms.open();
+    	}
+    	else if(Robot.oi.leftJoystick.getRawButton(7)) {
+    		Robot.arms.close();
+    	}
+    	else {
+    		Robot.arms.stopOpenClose();
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return true;
+        return false;
     }
 
     // Called once after isFinished returns true
