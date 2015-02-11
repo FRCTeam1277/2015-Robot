@@ -1,6 +1,7 @@
 package org.team1277.robot.subsystems;
 
 import org.team1277.robot.RobotMap;
+import org.team1277.robot.commands.ArmsDefault;
 
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -21,6 +22,7 @@ public class WheelArmsSubsystem extends Subsystem {
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
+    	setDefaultCommand(new ArmsDefault());
     }
     public void open() {
     	openCloseMotor.set(.5);
