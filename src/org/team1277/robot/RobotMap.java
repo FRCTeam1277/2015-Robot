@@ -18,6 +18,7 @@ import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -41,7 +42,7 @@ public class RobotMap {
     public static DigitalInput limitSwitchBottom;
     public static Relay lift;
     
-    public static Relay wheelArmMove;
+    public static SpeedController wheelArmMove;
     public static Relay wheelArmLeft;
     public static Relay wheelArmRight;
 
@@ -66,8 +67,8 @@ public class RobotMap {
         lift = new Relay(0);
         LiveWindow.addActuator("Lift", "liftRelay", lift);
         
-        wheelArmMove = new Relay(3);
-        LiveWindow.addActuator("WheelArms", "wheelArmMove", wheelArmMove);
+        wheelArmMove = new Talon(3);
+        LiveWindow.addActuator("WheelArms", "wheelArmMove", (Talon) wheelArmMove);
         wheelArmLeft = new Relay(1);
         LiveWindow.addActuator("WheelArms", "wheelArmLeftSpin", wheelArmLeft);
         wheelArmRight = new Relay(2);

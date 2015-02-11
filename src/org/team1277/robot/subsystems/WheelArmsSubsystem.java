@@ -3,6 +3,7 @@ package org.team1277.robot.subsystems;
 import org.team1277.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -13,7 +14,7 @@ public class WheelArmsSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	Relay openCloseMotor = RobotMap.wheelArmMove;
+	SpeedController openCloseMotor = RobotMap.wheelArmMove;
 	Relay spinLeftWheel = RobotMap.wheelArmLeft;
 	Relay spinRightWheel = RobotMap.wheelArmRight;
 	
@@ -22,13 +23,13 @@ public class WheelArmsSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     public void open() {
-    	openCloseMotor.set(Relay.Value.kForward);
+    	openCloseMotor.set(.5);
     }
     public void close() {
-    	openCloseMotor.set(Relay.Value.kReverse);
+    	openCloseMotor.set(-.5);
     }
     public void stopOpenClose() {
-    	openCloseMotor.set(Relay.Value.kOff);
+    	openCloseMotor.set(0);
     }
     public void pullIn() {
     	spinLeftWheel.set(Relay.Value.kReverse);
@@ -38,9 +39,13 @@ public class WheelArmsSubsystem extends Subsystem {
     	spinLeftWheel.set(Relay.Value.kForward);
     	spinRightWheel.set(Relay.Value.kReverse);
     }
-    public void spinContainer() {
+    public void spinContainerLeft() {
     	spinLeftWheel.set(Relay.Value.kForward);
     	spinRightWheel.set(Relay.Value.kForward);
+    }
+    public void spinContainerRight() {
+    	spinLeftWheel.set(Relay.Value.kReverse);
+    	spinRightWheel.set(Relay.Value.kReverse);
     }
     public void stopWheels() {
     	spinLeftWheel.set(Relay.Value.kOff);

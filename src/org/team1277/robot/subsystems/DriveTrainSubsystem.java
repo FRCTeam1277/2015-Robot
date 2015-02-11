@@ -46,6 +46,7 @@ public class DriveTrainSubsystem extends Subsystem {
     	setDefaultCommand(new TankDriveCommand());
     }
     public void arcadeDrive(double moveValue, double rotateValue) {
+    	SmartDashboard.putInt("GearTooth Value:", gearToothLeft.get());
     	SmartDashboard.putString(" Sensitivity: ", sensitivity + "%");
     	double x = (double) (sensitivity);
     	drive.arcadeDrive(moveValue * (x / 100), rotateValue * (x / 100));

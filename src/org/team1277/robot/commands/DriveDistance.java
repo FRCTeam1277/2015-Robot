@@ -20,7 +20,6 @@ public class DriveDistance extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.resetGearTooth();
     	countTo = (int) (6 * (Math.abs(distance) / (Math.PI / 2)));
     }
 
@@ -44,6 +43,7 @@ public class DriveDistance extends Command {
         	return false;
         }
         else {
+        	Robot.driveTrain.resetGearTooth();
         	return true;
         }
     }
