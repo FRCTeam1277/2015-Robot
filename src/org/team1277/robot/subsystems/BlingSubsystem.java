@@ -23,7 +23,7 @@ public class BlingSubsystem extends Subsystem {
     }
     
     public void on() {
-    	bling.set(Relay.Value.kOn);
+    	bling.set(Relay.Value.kForward);
     }
     
     public void off() {

@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class RaiseLift extends Command {
 
-	public int count = 0;
     public RaiseLift() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -25,8 +24,6 @@ public class RaiseLift extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	count++;
-    	SmartDashboard.putInt("Hello", count);
     	if (RobotMap.limitSwitchTop.get()) {
     		Robot.lift.moveUp();
     	}
