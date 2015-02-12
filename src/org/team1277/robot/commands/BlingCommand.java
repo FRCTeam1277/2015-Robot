@@ -12,6 +12,7 @@ public class BlingCommand extends Command {
     public BlingCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.bling);
     }
 
     // Called just before this Command runs the first time
