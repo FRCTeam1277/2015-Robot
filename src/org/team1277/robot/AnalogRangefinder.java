@@ -46,7 +46,7 @@ public class AnalogRangefinder implements LiveWindowSendable
 		return toInches(channel.getVoltage());
 	}
 	
-	private double toInches(double volts)
+	public double toInches(double volts)
 	{
 		return volts / voltsPerInch;
 	}

@@ -3,6 +3,7 @@ package org.team1277.robot.subsystems;
 import org.team1277.robot.RobotMap;
 import org.team1277.robot.commands.ArmsDefault;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -18,17 +19,23 @@ public class WheelArmsSubsystem extends Subsystem {
 	SpeedController openCloseMotor = RobotMap.wheelArmMove;
 	Relay spinLeftWheel = RobotMap.wheelArmLeft;
 	Relay spinRightWheel = RobotMap.wheelArmRight;
+	DigitalInput limitSwitch = RobotMap.armLimitSwitch;
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     	setDefaultCommand(new ArmsDefault());
     }
-    public void open() {
-    	openCloseMotor.set(.5);
-    }
     public void close() {
-    	openCloseMotor.set(-.5);
+    	if (!limitSwitch.get()) {
+    		stopOpenClose();
+    	}
+    	else {
+    		openCloseMotor.set(.5);
+    	}
+    }
+    public void open() {
+		openCloseMotor.set(-.5);
     }
     public void stopOpenClose() {
     	openCloseMotor.set(0);
