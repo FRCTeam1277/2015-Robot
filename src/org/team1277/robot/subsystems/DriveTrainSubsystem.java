@@ -45,7 +45,7 @@ public class DriveTrainSubsystem extends Subsystem {
     }
     public void arcadeDrive(double moveValue, double rotateValue) {
     	SmartDashboard.putString(" Angle: ", gyro.getAngle() + " degrees");
-    	SmartDashboard.putString(" Rangefinder Distance: ", rangefinder.toInches(rangefinder.getDistance()) + " inches");
+    	SmartDashboard.putString(" Rangefinder Distance: ", rangefinder.getDistance() + " inches");
     	SmartDashboard.putString(" Sensitivity: ", sensitivity + "%");
     	double x = (double) (sensitivity);
     	drive.arcadeDrive(moveValue * ((x + 10) / 100), rotateValue * (x / 100));
@@ -83,5 +83,10 @@ public class DriveTrainSubsystem extends Subsystem {
     public double getRotationRate()
     {
     	return gyro.getRate();
+    }
+    
+    public double getRearDistance()
+    {
+    	return rangefinder.getDistance();
     }
 }
