@@ -59,8 +59,8 @@ public class DriveTrainSubsystem extends Subsystem {
     
     public void tankDriveRaw(double left, double right)
     {
-    	frontLeftMotor.set(0 - right);
-    	frontRightMotor.set(0 - left);
+    	frontLeftMotor.set(left);
+    	frontRightMotor.set(right);
     }
     
     public void lowerSensitivity() {
