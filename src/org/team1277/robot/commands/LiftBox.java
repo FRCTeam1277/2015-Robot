@@ -7,14 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveDistance extends Command {
+public class LiftBox extends Command {
+
+	public int count = 0;
 	
-	public final double distance;
-	
-    public DriveDistance(double distance) {
-        
-    	this.distance = distance;
-    	requires(Robot.driveTrain);
+    public LiftBox() {
+        // Use requires() here to declare subsystem dependencies
+        // eg. requires(chassis);
+    	requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time
@@ -23,18 +23,19 @@ public class DriveDistance extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-		Robot.driveTrain.tankDriveRaw(.25, .25);
+    	Robot.lift.moveUp();
+    	count++;
     }
 
-    // Make this return true when th
-    //is Command no longer needs to run execute()
+    // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (Robot.driveTrain.getRearDistance() < distance) {
-    		return false;
-    	}
-    	else {
-    		return true;
-    	}
+        if (count < 50) {
+        	return false;
+        }
+        else {
+        	Robot.lift.moveStop();
+        	return true;
+        }
     }
 
     // Called once after isFinished returns true

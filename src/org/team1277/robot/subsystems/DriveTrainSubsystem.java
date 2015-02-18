@@ -85,6 +85,10 @@ public class DriveTrainSubsystem extends Subsystem {
     	return gyro.getRate();
     }
     
+    public void resetGyro() {
+    	gyro.reset();
+    }
+    
     public double getRearDistance()
     {
     	return rangefinder.getDistance();
