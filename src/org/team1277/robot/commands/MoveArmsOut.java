@@ -7,15 +7,15 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Rotate90 extends Command {
+public class MoveArmsOut extends Command {
 
 	public int count;
 	
-    public Rotate90() {
+    public MoveArmsOut() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	count = 0;
-    	requires(Robot.driveTrain);
+    	requires(Robot.arms);
     }
 
     // Called just before this Command runs the first time
@@ -24,13 +24,13 @@ public class Rotate90 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankDriveRaw(.5, -.5);
+    	Robot.arms.open();
     	count++;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (count < 50) {
+        if (count < 25) {
         	return false;
         }
         else {

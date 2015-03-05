@@ -21,16 +21,16 @@ public class ArmsDefault extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if (Robot.oi.leftJoystick.getRawAxis(3) == 1) {
+    	if (Robot.oi.leftJoystick.getRawAxis(2) == 1) {
     		Robot.arms.pullIn();
     	}
-    	else if (Robot.oi.leftJoystick.getRawAxis(3) == -1) {
+    	else if (Robot.oi.leftJoystick.getRawAxis(2) == -1) {
     		Robot.arms.pushOut();
     	}
-    	else if (Robot.oi.leftJoystick.getRawAxis(2) == 1) {
+    	else if (Robot.oi.leftJoystick.getRawAxis(3) == 1) {
     		Robot.arms.spinContainerLeft();
     	}
-    	else if (Robot.oi.leftJoystick.getRawAxis(2) == -1) {
+    	else if (Robot.oi.leftJoystick.getRawAxis(3) == -1) {
     		Robot.arms.spinContainerRight();
     	}
     	else {

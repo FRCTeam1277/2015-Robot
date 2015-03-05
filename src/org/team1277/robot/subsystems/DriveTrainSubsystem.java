@@ -48,6 +48,9 @@ public class DriveTrainSubsystem extends Subsystem {
     	SmartDashboard.putString(" Rangefinder Distance: ", rangefinder.getDistance() + " inches");
     	SmartDashboard.putString(" Sensitivity: ", sensitivity + "%");
     	double x = (double) (sensitivity);
+    	SmartDashboard.putDouble("movevalue", moveValue);
+    	SmartDashboard.putDouble("rotatevalue", rotateValue);
+    	
     	drive.arcadeDrive(moveValue * ((x + 10) / 100), rotateValue * (x / 100));
     }
     public void tankDrive(double left, double right) {

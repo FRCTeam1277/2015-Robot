@@ -12,6 +12,8 @@
 package org.team1277.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+
 import org.team1277.robot.Robot;
 
 /**
@@ -34,6 +36,8 @@ public class  TankDriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	SmartDashboard.putDouble("getx", Robot.oi.leftJoystick.getX());
+    	SmartDashboard.putDouble("gety", Robot.oi.leftJoystick.getY());
     	Robot.driveTrain.arcadeDrive(Robot.oi.leftJoystick.getX(), Robot.oi.leftJoystick.getY());
     }
 

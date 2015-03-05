@@ -1,21 +1,20 @@
 package org.team1277.robot.commands;
 
 import org.team1277.robot.Robot;
+import org.team1277.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class Rotate90 extends Command {
+public class DropBox extends Command {
 
-	public int count;
-	
-    public Rotate90() {
+	public boolean dropping = false;
+    public DropBox() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	count = 0;
-    	requires(Robot.driveTrain);
+    	requires(Robot.lift);
     }
 
     // Called just before this Command runs the first time
@@ -24,18 +23,19 @@ public class Rotate90 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankDriveRaw(.5, -.5);
-    	count++;
+    	if (RobotMap.limitSwitchBottom.get()) {
+    		Robot.lift.moveDown();
+    		dropping = false;
+    	}
+    	else {
+    		Robot.lift.moveStop();
+    		dropping = true;
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (count < 50) {
-        	return false;
-        }
-        else {
-        	return true;
-        }
+        return dropping;
     }
 
     // Called once after isFinished returns true
