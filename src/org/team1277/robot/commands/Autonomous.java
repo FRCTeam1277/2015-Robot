@@ -28,8 +28,8 @@ public class Autonomous extends CommandGroup {
     	
     	addSequential(new LiftBox());
     	addSequential(new Rotate90());
-    	//addSequential(new DriveDistance(12 * 8));
-    	//addSequential(new MoveArmsOut());
+    	addSequential(new DriveDistance(12 * 10));
+    	addSequential(new MoveArmsOut());
     	//addSequential(new DropBox());
     }
 }

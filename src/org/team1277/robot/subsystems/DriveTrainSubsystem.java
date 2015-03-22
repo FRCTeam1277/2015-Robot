@@ -51,7 +51,7 @@ public class DriveTrainSubsystem extends Subsystem {
     	SmartDashboard.putDouble("movevalue", moveValue);
     	SmartDashboard.putDouble("rotatevalue", rotateValue);
     	
-    	drive.arcadeDrive(moveValue * ((x + 10) / 100), rotateValue * (x / 100));
+    	drive.arcadeDrive(moveValue * ((x) / 100), rotateValue * (x / 100));
     }
     public void tankDrive(double left, double right) {
     	SmartDashboard.putString(" Sensitivity: ", sensitivity + "%");
@@ -73,7 +73,7 @@ public class DriveTrainSubsystem extends Subsystem {
     	SmartDashboard.putString(" Sensitivity: ", sensitivity + "%");
     }
     public void raiseSensitivity() {
-    	if (sensitivity < 90) {
+    	if (sensitivity < 100) {
     		sensitivity = sensitivity + 10;
     	}
     }

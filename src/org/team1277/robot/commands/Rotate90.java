@@ -24,13 +24,13 @@ public class Rotate90 extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.driveTrain.tankDriveRaw(.5, -.5);
+    	Robot.driveTrain.tankDriveRaw(.45, -.45);
     	count++;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if (count < 50) {
+        if (count < (50 * 1.25)) {
         	return false;
         }
         else {

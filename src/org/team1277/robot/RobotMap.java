@@ -39,9 +39,9 @@ public class RobotMap {
     
     public static DigitalInput limitSwitchTop;
     public static DigitalInput limitSwitchBottom;
-    public static Relay lift;
+    public static SpeedController lift;
     
-    public static SpeedController wheelArmMove;
+    public static Relay wheelArmMove;
     public static Relay wheelArmLeft;
     public static Relay wheelArmRight;
     public static Relay bling;
@@ -63,11 +63,11 @@ public class RobotMap {
         
         rangeFinder = new AnalogRangefinder(new AnalogInput(0));
         
-        lift = new Relay(0);
-        LiveWindow.addActuator("Lift", "liftRelay", lift);
+        lift = new Talon(3);
+        LiveWindow.addActuator("Lift", "liftRelay", (Talon) lift);
         
-        wheelArmMove = new Talon(3);
-        LiveWindow.addActuator("WheelArms", "wheelArmMove", (Talon) wheelArmMove);
+        wheelArmMove = new Relay(0);
+        LiveWindow.addActuator("WheelArms", "wheelArmMove", wheelArmMove);
         wheelArmLeft = new Relay(1);
         LiveWindow.addActuator("WheelArms", "wheelArmLeftSpin", wheelArmLeft);
         wheelArmRight = new Relay(2);

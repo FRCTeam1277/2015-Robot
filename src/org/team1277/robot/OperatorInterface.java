@@ -78,11 +78,11 @@ public class OperatorInterface {
         button2 = new JoystickButton(leftJoystick, 2);
         button2.whenPressed(new LowerSensitivityCommand());        
         
-        button6 = new JoystickButton(leftJoystick, 6);
+        button6 = new JoystickButton(leftJoystick, 5);
         button6.whenPressed(new RaiseLift());
         button6.whenReleased(new StopLift());
         
-        button8 = new JoystickButton(leftJoystick, 8);
+        button8 = new JoystickButton(leftJoystick, 7);
         button8.whenPressed(new LowerLift());
         button8.whenReleased(new StopLift());
         

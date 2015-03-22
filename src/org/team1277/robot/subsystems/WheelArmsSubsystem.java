@@ -16,7 +16,7 @@ public class WheelArmsSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	SpeedController openCloseMotor = RobotMap.wheelArmMove;
+	Relay openCloseMotor = RobotMap.wheelArmMove;
 	Relay spinLeftWheel = RobotMap.wheelArmLeft;
 	Relay spinRightWheel = RobotMap.wheelArmRight;
 	DigitalInput limitSwitch = RobotMap.armLimitSwitch;
@@ -31,14 +31,14 @@ public class WheelArmsSubsystem extends Subsystem {
     		stopOpenClose();
     	}
     	else {
-    		openCloseMotor.set(.5);
+    		openCloseMotor.set(Relay.Value.kForward);
     	}
     }
     public void open() {
-		openCloseMotor.set(-.5);
+		openCloseMotor.set(Relay.Value.kReverse);
     }
     public void stopOpenClose() {
-    	openCloseMotor.set(0);
+    	openCloseMotor.set(Relay.Value.kOff);
     }
     public void pullIn() {
     	spinLeftWheel.set(Relay.Value.kReverse);

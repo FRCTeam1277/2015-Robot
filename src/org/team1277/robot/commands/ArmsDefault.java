@@ -36,10 +36,10 @@ public class ArmsDefault extends Command {
     	else {
     		Robot.arms.stopWheels();
     	}
-    	if (Robot.oi.leftJoystick.getRawButton(5)) {
+    	if (Robot.oi.leftJoystick.getRawButton(6)) {
     		Robot.arms.open();
     	}
-    	else if(Robot.oi.leftJoystick.getRawButton(7)) {
+    	else if(Robot.oi.leftJoystick.getRawButton(8)) {
     		Robot.arms.close();
     	}
     	else {

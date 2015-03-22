@@ -5,6 +5,7 @@ import org.team1277.robot.commands.TankDriveCommand;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Relay;
+import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,7 +16,7 @@ public class LiftSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	public Relay winch = RobotMap.lift;
+	SpeedController winch = RobotMap.lift;
 
 	public DigitalInput limitSwitchTop = RobotMap.limitSwitchTop;
 	public DigitalInput limitSwitchBottom = RobotMap.limitSwitchBottom;
@@ -26,13 +27,13 @@ public class LiftSubsystem extends Subsystem {
     }
     
     public void moveUp() {
-    	winch.set(Relay.Value.kForward);
+    	winch.set(1);
     }
     public void moveDown() {
-    	winch.set(Relay.Value.kReverse);
+    	winch.set(-1);
     }
     public void moveStop() {
-    	winch.set(Relay.Value.kOff);
+    	winch.set(0);
     }
 }
 
